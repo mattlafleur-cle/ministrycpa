@@ -11,16 +11,23 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,500;1,9..144,600;1,9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/style.css" />
+
+  <!-- If JS is unavailable, the scroll-reveal effect never fires, so make
+       sure content is visible from the start rather than stuck at opacity:0 -->
+  <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
 </head>
 <body>
 
   <!-- ============================= HEADER / NAV ============================= -->
   <header class="site-header" id="site-header">
     <div class="container header-inner">
-      <a href="#hero" class="logo">The Ministry CPA</a>
+      <a href="#hero" class="logo">
+        <span class="logo-mark" aria-hidden="true">MC</span>
+        The Ministry CPA
+      </a>
 
       <nav class="main-nav" id="main-nav">
         <a href="#about">About</a>
@@ -44,25 +51,82 @@
 
     <!-- ============================= HERO ============================= -->
     <section class="hero" id="hero">
+      <p class="hero-watermark" aria-hidden="true">MINISTRY</p>
+      <div class="blob blob-rust hero-blob-1" aria-hidden="true"></div>
+      <div class="blob blob-teal hero-blob-2" aria-hidden="true"></div>
+
       <div class="container hero-inner">
-        <p class="eyebrow">Ministry Finance, Done Right</p>
-        <h1>The CPA for Churches and Christian Nonprofits Who Want to Get It Right</h1>
-        <p class="hero-sub">
-          Ministry finance is complex: housing allowance, dual status, restricted funds, 990s, UBIT.
-          Most CPAs get it wrong. I help churches get it right so their mission can move forward without fear.
-        </p>
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Ministry Finance, Done Right</p>
+          <h1>The CPA for Churches and Christian Nonprofits Who Want to <span class="highlight highlight-rust">Get It Right</span></h1>
+          <p class="hero-sub">
+            Ministry finance is complex: housing allowance, dual status, restricted funds, 990s, UBIT.
+            Most CPAs get it wrong. I help churches get it right so their mission can move forward without fear.
+          </p>
 
-        <div class="hero-actions">
-          <a href="#newsletter" class="btn btn-primary">Join Called to Account</a>
-          <a href="#contact" class="btn btn-secondary">Book a Consultation</a>
+          <div class="hero-actions">
+            <div class="hero-cta-wrap">
+              <a href="#newsletter" class="btn btn-primary btn-hard">Join Called to Account</a>
+              <span class="hand-note" aria-hidden="true">it's free &darr;</span>
+            </div>
+            <a href="#contact" class="btn btn-secondary btn-hard">Book a Consultation</a>
+          </div>
+          <p class="hero-cta-sub">Weekly, plain-English church finance guidance. Free.</p>
+
+          <div class="trust-bar">
+            <p>Trusted by churches like Church of the Open Door and other ministries</p>
+          </div>
         </div>
-        <p class="hero-cta-sub">Weekly, plain-English church finance guidance. Free.</p>
 
-        <div class="trust-bar">
-          <p>Trusted by churches like Church of the Open Door and other ministries</p>
+        <div class="hero-photo-wrap reveal">
+          <svg class="spin-badge" viewBox="0 0 200 200" aria-hidden="true">
+            <defs>
+              <path id="badge-circle" d="M 100,100 m -82,0 a 82,82 0 1,1 164,0 a 82,82 0 1,1 -164,0" />
+            </defs>
+            <circle cx="100" cy="100" r="82" class="spin-badge-ring" />
+            <text font-size="12.5" letter-spacing="2" fill="currentColor">
+              <textPath href="#badge-circle" startOffset="0%">
+                CPA &#8226; CLEVELAND, OHIO &#8226; MINISTRY FINANCE SPECIALIST &#8226;
+              </textPath>
+            </text>
+          </svg>
+
+          <div class="blob blob-gold photo-blob" aria-hidden="true"></div>
+          <div class="photo-placeholder" aria-hidden="true">ML</div>
+
+          <span class="sticker sticker-1">Cleveland, OH</span>
+          <span class="sticker sticker-2">Ministry Finance CPA</span>
         </div>
       </div>
     </section>
+
+    <!-- ============================= TICKER ============================= -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>Housing Allowance</span>
+        <span>Dual Tax Status</span>
+        <span>Form 990 Confusion</span>
+        <span>Restricted vs. Unrestricted Funds</span>
+        <span>Pastor as Contractor</span>
+        <span>UBIT</span>
+        <span>Digital Payments Fraud</span>
+        <span>Internal Controls</span>
+        <span>ECFA Standards</span>
+        <span>Fund Accounting</span>
+        <span>Compensation Benchmarking</span>
+        <span>Housing Allowance</span>
+        <span>Dual Tax Status</span>
+        <span>Form 990 Confusion</span>
+        <span>Restricted vs. Unrestricted Funds</span>
+        <span>Pastor as Contractor</span>
+        <span>UBIT</span>
+        <span>Digital Payments Fraud</span>
+        <span>Internal Controls</span>
+        <span>ECFA Standards</span>
+        <span>Fund Accounting</span>
+        <span>Compensation Benchmarking</span>
+      </div>
+    </div>
 
     <!-- ============================= PROBLEM ============================= -->
     <section class="problem" id="problem">
@@ -71,7 +135,7 @@
         <h2 class="section-title center">Ministry finance breaks the rules everyone else learned</h2>
 
         <div class="problem-grid">
-          <div class="problem-card">
+          <div class="problem-card reveal">
             <div class="problem-icon" aria-hidden="true">
               <svg viewBox="0 0 48 48"><path d="M24 6c-6 0-11 5-11 11 0 5 3 9 7 10.5V32h8v-4.5c4-1.5 7-5.5 7-10.5 0-6-5-11-11-11z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15 40h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M19 40v4M29 40v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             </div>
@@ -79,7 +143,7 @@
             <p>Housing allowance elections, dual tax status, and the temptation to treat a pastor as a 1099 contractor all carry real IRS exposure. One missed step and the church, not the pastor, absorbs the risk.</p>
           </div>
 
-          <div class="problem-card">
+          <div class="problem-card reveal">
             <div class="problem-icon" aria-hidden="true">
               <svg viewBox="0 0 48 48"><rect x="10" y="18" width="28" height="20" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 18v-4a8 8 0 0116 0v4" fill="none" stroke="currentColor" stroke-width="2"/></svg>
             </div>
@@ -87,7 +151,7 @@
             <p>When a donor restricts a gift, that restriction is not a suggestion. Spending it elsewhere, even temporarily, can create legal liability and break trust that took years to build.</p>
           </div>
 
-          <div class="problem-card">
+          <div class="problem-card reveal">
             <div class="problem-icon" aria-hidden="true">
               <svg viewBox="0 0 48 48"><rect x="9" y="8" width="30" height="34" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15 17h18M15 24h18M15 31h11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             </div>
@@ -95,37 +159,34 @@
             <p>A capable bookkeeper can keep the books balanced. Fund accounting, 990 readiness, UBIT exposure, and ECFA standards require someone who knows ministry finance specifically, not finance in general.</p>
           </div>
         </div>
-
-        <div class="pillars">
-          <p class="pillars-label">The 11 areas where ministry finance gets complicated</p>
-          <ul class="pillars-list">
-            <li>Housing Allowance</li>
-            <li>Dual Tax Status</li>
-            <li>Form 990 Confusion</li>
-            <li>Restricted vs. Unrestricted Funds</li>
-            <li>Pastor as Contractor</li>
-            <li>UBIT</li>
-            <li>Digital Payments Fraud</li>
-            <li>Internal Controls</li>
-            <li>ECFA Standards</li>
-            <li>Fund Accounting</li>
-            <li>Compensation Benchmarking</li>
-          </ul>
-        </div>
       </div>
+    </section>
+
+    <!-- ============================= PULL QUOTE ============================= -->
+    <section class="pull-quote" id="mission">
+      <svg class="wave wave-top" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0,40 C240,90 480,0 720,40 C960,80 1200,10 1440,40 L1440,0 L0,0 Z"/></svg>
+      <div class="container">
+        <p class="quote-mark" aria-hidden="true">&ldquo;</p>
+        <blockquote class="reveal">
+          The go-to CPA for churches and Christian nonprofits navigating the complexity of ministry finance.
+        </blockquote>
+        <p class="quote-attribution">&mdash; Matt LaFleur, CPA</p>
+      </div>
+      <svg class="wave wave-bottom" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0,40 C240,-10 480,80 720,40 C960,0 1200,70 1440,40 L1440,80 L0,80 Z"/></svg>
     </section>
 
     <!-- ============================= ABOUT ============================= -->
     <section class="about" id="about">
       <div class="container about-inner">
-        <div class="about-photo">
-          <div class="photo-placeholder" aria-hidden="true">ML</div>
+        <div class="about-photo reveal">
+          <div class="blob blob-teal about-blob" aria-hidden="true"></div>
+          <div class="photo-placeholder photo-placeholder-lg" aria-hidden="true">ML</div>
           <p class="photo-caption">Photo coming soon</p>
         </div>
 
-        <div class="about-content">
+        <div class="about-content reveal">
           <p class="eyebrow">About Matt</p>
-          <h2 class="section-title">A Cleveland CPA who chose ministry finance on purpose</h2>
+          <h2 class="section-title">A Cleveland CPA who chose ministry finance <span class="highlight highlight-gold">on purpose</span></h2>
           <p>
             Matt LaFleur is a Cleveland-based CPA and the founder of Forest City. The Ministry CPA is
             where that expertise turns toward a single focus: helping churches and Christian nonprofits
@@ -150,6 +211,7 @@
           </div>
         </div>
       </div>
+      <svg class="wave wave-bottom" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0,40 C240,-10 480,80 720,40 C960,0 1200,70 1440,40 L1440,80 L0,80 Z"/></svg>
     </section>
 
     <!-- ============================= SERVICES ============================= -->
@@ -159,7 +221,7 @@
         <h2 class="section-title center">Three ways to bring ministry-specific finance expertise to your team</h2>
 
         <div class="services-grid">
-          <div class="service-card">
+          <div class="service-card service-card-rust reveal">
             <span class="service-number">01</span>
             <h3>Advisory &amp; Fractional CFO</h3>
             <p class="service-tag">For Christian Nonprofits, Retainer-Based</p>
@@ -167,7 +229,7 @@
               reporting, and strategic guidance from a CPA who already knows ministry finance.</p>
           </div>
 
-          <div class="service-card">
+          <div class="service-card service-card-gold reveal">
             <span class="service-number">02</span>
             <h3>Compliance Reviews &amp; Board Training</h3>
             <p class="service-tag">Housing Allowance, Restricted Funds, Internal Controls, 990 Readiness</p>
@@ -175,7 +237,7 @@
               board training so leadership understands the risk and the fix.</p>
           </div>
 
-          <div class="service-card">
+          <div class="service-card service-card-teal reveal">
             <span class="service-number">03</span>
             <h3>Speaking &amp; Workshops</h3>
             <p class="service-tag">ECFA, The Church Network, Church Staffs</p>
@@ -185,20 +247,21 @@
           </div>
         </div>
       </div>
+      <svg class="wave wave-bottom" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0,40 C240,-10 480,80 720,40 C960,0 1200,70 1440,40 L1440,80 L0,80 Z"/></svg>
     </section>
 
     <!-- ============================= CALLED TO ACCOUNT (NEWSLETTER) ============================= -->
     <section class="newsletter" id="newsletter">
       <div class="container newsletter-inner">
         <p class="eyebrow eyebrow-center">The Newsletter</p>
-        <h2 class="section-title center">Called to Account</h2>
+        <h2 class="section-title center newsletter-title">Called to <span class="highlight highlight-gold">Account</span></h2>
         <p class="newsletter-explainer">
           The name is intentional. Ministry is a calling. Sound finances are how a ministry stays
           accountable to that calling, to its donors, and to the people it serves.
         </p>
 
         <div class="newsletter-grid">
-          <div class="newsletter-details">
+          <div class="newsletter-details reveal">
             <h3>What you get</h3>
             <ul class="check-list">
               <li>One email, every week</li>
@@ -209,7 +272,7 @@
             <form class="signup-form" id="signup-form" novalidate>
               <label for="email-input" class="sr-only">Email address</label>
               <input type="email" id="email-input" name="email" placeholder="you@yourchurch.org" required />
-              <button type="submit" class="btn btn-primary">Subscribe Free</button>
+              <button type="submit" class="btn btn-primary btn-hard">Subscribe Free</button>
             </form>
             <p class="form-success" id="form-success" role="status" hidden>
               You're in. Check your inbox to confirm your subscription.
@@ -217,18 +280,18 @@
             <p class="form-note"><!-- Placeholder: wire this form to Substack or Ghost embed at launch --> No spam. Unsubscribe anytime.</p>
           </div>
 
-          <div class="newsletter-archive">
+          <div class="newsletter-archive reveal">
             <h3>From the archive</h3>
             <div class="archive-list">
-              <div class="archive-card">
+              <div class="archive-card archive-card-1">
                 <span class="archive-badge">Coming Soon</span>
                 <h4>The Housing Allowance Mistake 80% of Churches Make</h4>
               </div>
-              <div class="archive-card">
+              <div class="archive-card archive-card-2">
                 <span class="archive-badge">Coming Soon</span>
                 <h4>Pastor as 1099 Contractor: Why Your Church Is at Risk</h4>
               </div>
-              <div class="archive-card">
+              <div class="archive-card archive-card-3">
                 <span class="archive-badge">Coming Soon</span>
                 <h4>Restricted Funds: When Good Intentions Become Liability</h4>
               </div>
@@ -242,14 +305,14 @@
     <section class="speaking" id="speaking">
       <div class="container speaking-inner">
         <p class="eyebrow">Speaking &amp; Workshops</p>
-        <h2 class="section-title">Practical ministry finance training for staffs, boards, and conferences</h2>
+        <h2 class="section-title">Practical ministry finance training for staffs, boards, and <span class="highlight highlight-teal">conferences</span></h2>
         <p>
           Matt speaks to church staffs, boards, and denominational and association gatherings on the
           topics that create the most risk and the most confusion in ministry finance.
         </p>
 
         <div class="speaking-grid">
-          <div>
+          <div class="reveal">
             <h3>Popular Topics</h3>
             <ul class="plain-list">
               <li>Housing allowance, explained correctly</li>
@@ -259,7 +322,7 @@
               <li>Fund accounting basics for non-finance leaders</li>
             </ul>
           </div>
-          <div>
+          <div class="reveal">
             <h3>Audiences</h3>
             <ul class="plain-list">
               <li>ECFA member events</li>
@@ -270,12 +333,14 @@
           </div>
         </div>
 
-        <a href="#contact" class="btn btn-secondary">Invite Matt to Speak</a>
+        <a href="#contact" class="btn btn-secondary btn-hard">Invite Matt to Speak</a>
       </div>
+      <svg class="wave wave-bottom" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0,40 C240,-10 480,80 720,40 C960,0 1200,70 1440,40 L1440,80 L0,80 Z"/></svg>
     </section>
 
     <!-- ============================= CONTACT ============================= -->
     <section class="contact" id="contact">
+      <div class="blob blob-rust contact-blob" aria-hidden="true"></div>
       <div class="container contact-inner">
         <p class="eyebrow eyebrow-center">Get In Touch</p>
         <h2 class="section-title center">Let's talk about your ministry's finances</h2>
@@ -286,8 +351,8 @@
 
         <div class="contact-actions">
           <!-- Placeholder: replace with real Calendly or scheduling embed at launch -->
-          <a href="mailto:hello@theministrycpa.com" class="btn btn-primary">Book a Consultation</a>
-          <a href="mailto:hello@theministrycpa.com" class="btn btn-secondary">Email Matt Directly</a>
+          <a href="mailto:hello@theministrycpa.com" class="btn btn-primary btn-hard">Book a Consultation</a>
+          <a href="mailto:hello@theministrycpa.com" class="btn btn-secondary btn-hard">Email Matt Directly</a>
         </div>
       </div>
     </section>
@@ -313,6 +378,9 @@
       <p class="footer-copyright">&copy; 2026 The Ministry CPA. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- Sticky floating subscribe CTA, appears after scrolling past the hero -->
+  <a href="#newsletter" class="sticky-cta btn-hard" id="sticky-cta">Subscribe to Called to Account</a>
 
   <script src="js/main.js"></script>
 </body>
