@@ -453,14 +453,21 @@ section { padding: 88px 0; position: relative; }
   height: 70px;
   display: block;
 }
-.wave-top { top: -1px; transform: translateY(-99%); }
-.wave-bottom { bottom: -1px; transform: translateY(99%); }
-/* Each wave is filled with the color of the section it's introducing */
+.wave-top { top: -1px; transform: translateY(-99%); z-index: 1; }
+
+/* Every divider is a wave-top belonging to the LATER section in the pair,
+   poking backward into the section above it. This matters for paint order:
+   two sibling sections with position:relative/z-index:auto paint in DOM
+   order, so a later section's wave-top naturally paints over the earlier
+   section it overlaps — the reverse (an earlier section's wave hanging
+   forward into the next section) gets silently painted over by that next
+   section's own opaque background. Each wave is filled with its own
+   section's color, since it's introducing that color into the section above. */
 .pull-quote .wave-top path { fill: var(--teal-deep); }
-.pull-quote .wave-bottom path { fill: var(--cream-dark); }
-.about .wave-bottom path { fill: var(--navy); }
-.services .wave-bottom path { fill: var(--rust-deep); }
-.speaking .wave-bottom path { fill: var(--navy); }
+.about .wave-top path { fill: var(--cream-dark); }
+.services .wave-top path { fill: var(--navy); }
+.newsletter .wave-top path { fill: var(--rust-deep); }
+.contact .wave-top path { fill: var(--navy); }
 
 /* ---------- Problem ---------- */
 .problem { background: var(--white); }
