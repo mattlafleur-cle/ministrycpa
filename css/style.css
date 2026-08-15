@@ -685,10 +685,14 @@ section { padding: 88px 0; position: relative; }
   font-weight: 700;
 }
 .signup-form {
-  display: flex;
   gap: 12px;
   margin-top: 28px;
   flex-wrap: wrap;
+}
+/* Same fix as .form-success: don't set display unconditionally, or the
+   hidden attribute JS sets on submit (form.hidden = true) has no effect. */
+.signup-form:not([hidden]) {
+  display: flex;
 }
 .signup-form input {
   flex: 1 1 240px;
