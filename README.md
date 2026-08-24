@@ -13,10 +13,18 @@ serves static files (Netlify, Vercel, GitHub Pages, S3 + CloudFront, etc.).
 ```
 index.html        one page, sections commented and id-anchored for future
                    expansion into separate routes/pages
-css/style.css      all styling (navy / cream / muted gold palette)
+css/style.css      all styling (navy / orange two-color palette)
 js/main.js         mobile nav toggle + mocked newsletter signup success state
-assets/            drop real photos, logo, and favicon art here
+assets/            real photos, logo, and favicon art live here
 ```
+
+**Cache-busting:** `index.html` references `css/style.css?v=2` and
+`js/main.js?v=2`, not the bare filenames. Bump that `?v=` number any time you
+edit either file. Without it, browsers and GitHub's CDN can keep serving an
+old cached copy of the CSS/JS after a deploy even though the HTML updates
+immediately — this already happened once (a photo added to `.photo-placeholder`
+looked broken/unstyled for a visitor on a stale cached stylesheet). Bumping
+the version forces a fresh fetch.
 
 ## Page sections (in order)
 
