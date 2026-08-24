@@ -23,7 +23,7 @@ assets/            drop real photos, logo, and favicon art here
 1. Header / nav — About, Services, Called to Account, Speaking, Contact, Subscribe CTA
 2. Hero — headline, sub, primary + secondary CTA, trust bar
 3. Problem — 3 pain-point cards + the 11 ministry finance pillars
-4. About — bio, photo placeholder, "in good company" relationships
+4. About — bio, headshot, "in good company" relationships
 5. Services — Advisory/Fractional CFO, Compliance Reviews & Board Training, Speaking & Workshops
 6. Called to Account — name explainer, what-you-get list, email capture (mocked), archive preview
 7. Speaking — topics, audiences, booking CTA
@@ -35,8 +35,6 @@ be split into standalone pages later without restructuring.
 
 ## Known placeholders (fix before real launch)
 
-- **Photo**: `about` section uses an "ML" monogram placeholder. Swap in a
-  real headshot.
 - **Newsletter form**: `js/main.js` intercepts the submit and shows a mocked
   success message. Wire this to a real Substack or Ghost embed/API before
   going live.
