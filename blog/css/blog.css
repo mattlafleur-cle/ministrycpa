@@ -1,0 +1,267 @@
+/* ==========================================================================
+   Called to Account — blog stylesheet
+   Same brand tokens as the main site (navy + orange, Fraunces + Plus
+   Jakarta Sans) but laid out for reading rather than for conversion —
+   no blobs/waves/ticker here, just a clean archive and article template.
+   ========================================================================== */
+
+:root {
+  --navy: #14213D;
+  --navy-light: #1F335C;
+  --navy-deep: #0F1830;
+  --cream: #FBF6EC;
+  --cream-dark: #F3EAD9;
+
+  --orange: #DD6428;
+  --orange-deep: #A8431B;
+
+  --ink: #201B14;
+  --slate: #5C5347;
+  --border: #E8DCC8;
+  --white: #FFFFFF;
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --max-width: 720px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background: var(--cream);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  color: var(--navy);
+  margin: 0 0 0.5em;
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+p { margin: 0 0 1em; color: var(--slate); }
+a { color: inherit; text-decoration: none; }
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- Buttons (subset, matches main site) ---------- */
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border: 2px solid transparent;
+  transition: background 0.15s ease;
+}
+.btn-primary {
+  background: var(--orange);
+  color: var(--white);
+  border-color: var(--navy);
+}
+.btn-primary:hover { background: var(--orange-deep); }
+.btn-small { padding: 9px 18px; font-size: 0.85rem; }
+
+/* ---------- Header ---------- */
+.blog-header {
+  background: var(--cream);
+  border-bottom: 2px solid var(--navy);
+}
+.blog-header-inner {
+  max-width: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+.blog-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--navy);
+}
+.blog-logo-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  background: var(--navy);
+  color: var(--orange);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+/* ---------- Intro ---------- */
+.blog-intro {
+  padding: 64px 0 32px;
+}
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--orange-deep);
+  margin: 0 0 12px;
+}
+.blog-intro h1 {
+  font-size: clamp(2.2rem, 5vw, 2.8rem);
+  margin-bottom: 16px;
+}
+.blog-intro-sub {
+  font-size: 1.1rem;
+  max-width: 560px;
+}
+
+/* ---------- Post list (archive) ---------- */
+.blog-list-section { padding-bottom: 88px; }
+.post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.post-list-loading,
+.post-list-empty {
+  color: var(--slate);
+  font-style: italic;
+}
+.post-card {
+  display: block;
+  background: var(--white);
+  border: 2px solid var(--navy);
+  border-radius: 8px;
+  padding: 24px 28px;
+  transition: transform 0.15s ease;
+}
+.post-card:hover { transform: translateY(-2px); }
+.post-card .post-date {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--orange-deep);
+  margin-bottom: 8px;
+  display: block;
+}
+.post-card h2 {
+  font-size: 1.35rem;
+  margin-bottom: 8px;
+}
+.post-card p {
+  margin: 0;
+  font-size: 0.98rem;
+}
+
+/* ---------- Single post / article ---------- */
+.post-header {
+  padding: 56px 0 24px;
+  border-bottom: 2px dashed var(--border);
+}
+.post-back {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--orange-deep);
+  margin-bottom: 20px;
+}
+.post-back:hover { text-decoration: underline; }
+.post-header .post-date {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--orange-deep);
+  margin-bottom: 12px;
+  display: block;
+}
+.post-header h1 {
+  font-size: clamp(1.9rem, 4.5vw, 2.6rem);
+  margin-bottom: 0;
+}
+article.post-body {
+  padding: 32px 0 24px;
+  font-size: 1.08rem;
+  color: var(--ink);
+}
+article.post-body p { color: var(--ink); margin-bottom: 1.3em; }
+article.post-body h2 {
+  font-size: 1.5rem;
+  margin-top: 1.6em;
+}
+article.post-body h3 {
+  font-size: 1.2rem;
+  margin-top: 1.4em;
+}
+article.post-body ul,
+article.post-body ol {
+  margin: 0 0 1.3em;
+  padding-left: 1.4em;
+  color: var(--ink);
+}
+article.post-body li { margin-bottom: 0.5em; }
+article.post-body blockquote {
+  margin: 1.6em 0;
+  padding: 4px 0 4px 20px;
+  border-left: 4px solid var(--orange);
+  font-style: italic;
+  color: var(--navy);
+}
+article.post-body strong { color: var(--navy); }
+
+.post-cta {
+  margin: 40px 0 64px;
+  padding: 28px 28px;
+  background: var(--navy);
+  border-radius: 8px;
+  text-align: center;
+}
+.post-cta p {
+  color: var(--white);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+/* ---------- Footer ---------- */
+.blog-footer {
+  background: var(--navy-deep);
+  color: rgba(255,255,255,0.7);
+  padding: 28px 0;
+  border-top: 4px solid var(--orange);
+}
+.blog-footer-inner {
+  max-width: 900px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 0.85rem;
+}
+.blog-footer-inner p { margin: 0; color: rgba(255,255,255,0.6); }
+.blog-footer-inner a { color: var(--orange); font-weight: 600; }
+.blog-footer-inner a:hover { text-decoration: underline; }
+
+@media (max-width: 600px) {
+  .blog-intro { padding: 48px 0 24px; }
+  .post-header { padding: 40px 0 20px; }
+  .post-card { padding: 20px 22px; }
+}
