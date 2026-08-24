@@ -724,6 +724,19 @@ section { padding: 88px 0; position: relative; }
 .form-success:not([hidden]) {
   display: inline-block;
 }
+.form-error {
+  margin-top: 16px;
+  color: var(--cream);
+  background: var(--orange-deep);
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+/* Same [hidden] specificity fix as .form-success/.signup-form above. */
+.form-error:not([hidden]) {
+  display: inline-block;
+}
 .form-note {
   font-size: 0.78rem;
   color: rgba(255,255,255,0.7);

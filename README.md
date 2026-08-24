@@ -14,12 +14,12 @@ serves static files (Netlify, Vercel, GitHub Pages, S3 + CloudFront, etc.).
 index.html        one page, sections commented and id-anchored for future
                    expansion into separate routes/pages
 css/style.css      all styling (navy / orange two-color palette)
-js/main.js         mobile nav toggle + mocked newsletter signup success state
+js/main.js         mobile nav toggle + Called to Account signup (Kit) + scroll-reveal
 assets/            real photos, logo, and favicon art live here
 ```
 
-**Cache-busting:** `index.html` references `css/style.css?v=2` and
-`js/main.js?v=2`, not the bare filenames. Bump that `?v=` number any time you
+**Cache-busting:** `index.html` references `css/style.css?v=3` and
+`js/main.js?v=3`, not the bare filenames. Bump that `?v=` number any time you
 edit either file. Without it, browsers and GitHub's CDN can keep serving an
 old cached copy of the CSS/JS after a deploy even though the HTML updates
 immediately — this already happened once (a photo added to `.photo-placeholder`
@@ -33,7 +33,7 @@ the version forces a fresh fetch.
 3. Problem — 3 pain-point cards + the 11 ministry finance pillars
 4. About — bio, headshot, "in good company" relationships
 5. Services — Advisory/Fractional CFO, Compliance Reviews & Board Training, Speaking & Workshops
-6. Called to Account — name explainer, what-you-get list, email capture (mocked), archive preview
+6. Called to Account — name explainer, what-you-get list, email capture (live, via Kit), archive preview
 7. Speaking — topics, audiences, booking CTA
 8. Contact — consultation + direct email CTAs
 9. Footer
@@ -41,11 +41,38 @@ the version forces a fresh fetch.
 Each section is written as its own `<section>` with a stable `id`, so it can
 be split into standalone pages later without restructuring.
 
+## Called to Account signup
+
+The signup form (`#signup-form` in `index.html`) posts directly to Kit
+(formerly ConvertKit) with no backend of any kind — it's a plain `fetch` to
+Kit's public form endpoint, the same one their own copy-paste embed script
+uses. No API key is exposed or needed.
+
+**To connect it to a real list:**
+
+1. Create a free account at [kit.com](https://kit.com) if you don't have one.
+2. In Kit, create a form (Grow → Landing Pages & Forms → Create → Form).
+   Name it something like "Called to Account." Any form type works since
+   we're only using its ID, not Kit's own embed styling.
+3. Find the form's numeric ID — it's in the dashboard URL when you're editing
+   the form (`app.kit.com/forms/designers/<ID>`) or shown in the form's
+   Embed panel.
+4. In `index.html`, replace `REPLACE_WITH_YOUR_KIT_FORM_ID` on `#signup-form`'s
+   `data-kit-form-id` attribute with that number. That's the only change
+   needed — `js/main.js` reads it from there.
+5. Bump the cache-busting `?v=` on `index.html`'s CSS/JS links (see above),
+   then deploy and test with a real email address.
+
+Until step 4 is done, the form falls back to a mocked success state (logging
+a console warning) instead of silently failing, so the page never looks
+broken mid-setup.
+
+**Double opt-in:** Kit forms have confirmation email settings under the
+form's Settings tab — enable it if you want subscribers to confirm before
+landing on your list.
+
 ## Known placeholders (fix before real launch)
 
-- **Newsletter form**: `js/main.js` intercepts the submit and shows a mocked
-  success message. Wire this to a real Substack or Ghost embed/API before
-  going live.
 - **Contact links**: point to `mailto:hello@theministrycpa.com`. Replace
   with Matt's real inbox and, ideally, a real scheduling link (Calendly or
   similar) for "Book a Consultation."
