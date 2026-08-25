@@ -573,22 +573,6 @@ section { padding: 88px 0; position: relative; }
   color: var(--slate);
   margin: 0;
 }
-.about-relationships {
-  margin-top: 28px;
-  padding: 20px 24px;
-  background: var(--cream);
-  border-left: 4px solid var(--orange);
-  border-radius: 4px;
-}
-.relationships-label {
-  font-weight: 700;
-  color: var(--navy);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 0.78rem;
-  margin-bottom: 12px;
-}
-
 /* ---------- Services ---------- */
 .services { background: var(--navy); }
 .services .section-title { color: var(--white); }
