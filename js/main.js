@@ -1,7 +1,8 @@
 // The Ministry CPA — v1 site scripts
-// Four jobs: mobile nav toggle, mocked newsletter signup success state,
-// scroll-reveal animation, and the sticky floating subscribe CTA.
-// Replace the signup handler with a real Substack/Ghost embed before launch.
+// Three jobs: mobile nav toggle, scroll-reveal animation, and the sticky
+// floating subscribe CTA. The Called to Account signup form (in index.html)
+// is Kit's own official embed and needs no handler here — see main.js's
+// "Called to Account signup" comment below for why.
 
 document.addEventListener('DOMContentLoaded', function () {
   // ---------- Mobile nav toggle ----------
@@ -23,81 +24,14 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // ---------- Called to Account signup (Kit) ----------
-  // Posts straight to Kit's (formerly ConvertKit) public form endpoint —
-  // the same one their own copy-paste embed script uses, built for exactly
-  // this kind of no-backend AJAX submission from any domain. No API key is
-  // needed or exposed; the form ID alone is enough.
-  //
-  // Setup: create a form at kit.com, then replace the placeholder in
-  // data-kit-form-id on #signup-form (index.html) with its numeric ID.
-  // See README.md "Called to Account signup" for step-by-step instructions.
-  var PLACEHOLDER_FORM_ID = 'REPLACE_WITH_YOUR_KIT_FORM_ID';
-  var form = document.getElementById('signup-form');
-  var success = document.getElementById('form-success');
-  var errorEl = document.getElementById('form-error');
-  var submitBtn = document.getElementById('signup-submit');
-
-  if (form && success && errorEl) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var emailInput = document.getElementById('email-input');
-      if (!emailInput || !emailInput.checkValidity()) {
-        emailInput && emailInput.reportValidity();
-        return;
-      }
-
-      errorEl.hidden = true;
-      var formId = form.getAttribute('data-kit-form-id');
-
-      // Kit isn't configured yet: fall back to a mocked success state so
-      // the page never looks broken while someone is still setting this up.
-      if (!formId || formId === PLACEHOLDER_FORM_ID) {
-        console.warn('Called to Account signup: no Kit form ID set on #signup-form (data-kit-form-id). Showing a mocked success state — see README.md.');
-        form.hidden = true;
-        success.hidden = false;
-        return;
-      }
-
-      var originalBtnText = submitBtn ? submitBtn.textContent : '';
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Subscribing…';
-      }
-
-      fetch('https://app.kit.com/forms/' + formId + '/subscriptions', {
-        method: 'POST',
-        headers: { Accept: 'application/json' },
-        body: new FormData(form)
-      })
-        .then(function (res) {
-          return res.json().catch(function () { return {}; }).then(function (data) {
-            return { ok: res.ok, data: data };
-          });
-        })
-        .then(function (result) {
-          if (result.ok) {
-            form.hidden = true;
-            success.hidden = false;
-            return;
-          }
-          var message = (result.data && result.data.errors && result.data.errors[0]) ||
-            'That email couldn\'t be added. Double-check it and try again.';
-          errorEl.textContent = message;
-          errorEl.hidden = false;
-        })
-        .catch(function () {
-          errorEl.textContent = 'Something went wrong on our end. Please try again in a moment.';
-          errorEl.hidden = false;
-        })
-        .finally(function () {
-          if (submitBtn) {
-            submitBtn.disabled = false;
-            submitBtn.textContent = originalBtnText;
-          }
-        });
-    });
-  }
+  // ---------- Called to Account signup ----------
+  // No handler needed here: the form in index.html is Kit's own official
+  // embed (script + form markup straight from Kit's Embed panel), so
+  // Kit's ck.5.js owns the entire submit/validate/confirm lifecycle.
+  // A hand-rolled fetch() to Kit's endpoint previously lived here — it
+  // looked like it worked (showed a success state) but never actually
+  // created subscribers, since it wasn't reproducing whatever Kit's own
+  // client does. See README.md "Called to Account signup" for details.
 
   // ---------- Scroll-reveal ----------
   // Content must never be permanently stuck invisible: a fade-in is a nice

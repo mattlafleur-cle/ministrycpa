@@ -43,33 +43,45 @@ be split into standalone pages later without restructuring.
 
 ## Called to Account signup
 
-The signup form (`#signup-form` in `index.html`) posts directly to Kit
-(formerly ConvertKit) with no backend of any kind — it's a plain `fetch` to
-Kit's public form endpoint, the same one their own copy-paste embed script
-uses. No API key is exposed or needed.
+The signup form in `index.html` (inside the `newsletter` section) is Kit's
+(formerly ConvertKit) **own official embed** — the script and form markup
+copy-pasted verbatim from Kit's Embed panel (HTML tab), then restyled via
+`.newsletter-kit-form` rules in `css/style.css` to match the site's brand
+instead of Kit's defaults. It currently points at a real, live form
+("Called to Account", form ID `9839539`).
 
-**To connect it to a real list:**
+**An earlier version of this hand-rolled its own `fetch()` call to Kit's
+endpoint instead of using Kit's script.** It looked like it worked (showed a
+success message) but never actually created subscribers — the endpoint
+accepted the request without reproducing whatever validation/anti-spam
+handshake Kit's own client does. If you ever rebuild this by hand again,
+don't: use Kit's official embed and restyle it, the way it's done now.
 
-1. Create a free account at [kit.com](https://kit.com) if you don't have one.
-2. In Kit, create a form (Grow → Landing Pages & Forms → Create → Form).
-   Name it something like "Called to Account." Any form type works since
-   we're only using its ID, not Kit's own embed styling.
-3. Find the form's numeric ID — it's in the dashboard URL when you're editing
-   the form (`app.kit.com/forms/designers/<ID>`) or shown in the form's
-   Embed panel.
-4. In `index.html`, replace `REPLACE_WITH_YOUR_KIT_FORM_ID` on `#signup-form`'s
-   `data-kit-form-id` attribute with that number. That's the only change
-   needed — `js/main.js` reads it from there.
+**To point this at a different Kit account/form:**
+
+1. In Kit, create or open the form (Grow → Landing Pages & Forms), format
+   "Inline" is simplest since we override the visual styling anyway.
+2. Open its **Embed** panel → **HTML** tab and copy the full snippet (a
+   `<script src="https://f.convertkit.com/ckjs/ck.5.js">` tag plus a
+   `<form action="https://app.kit.com/forms/<ID>/subscriptions" ...>` block
+   with a large inline `<style>` block).
+3. In `index.html`, replace the current script + form block (search for
+   `newsletter-kit-form`) with the new one. Keep the two things this repo
+   adds on top: the `newsletter-kit-form` class on the `<form>` tag (for the
+   CSS overrides to target), and swapping the `email_address` input's
+   `placeholder` back to `you@yourministry.org` if Kit resets it.
+4. Update the form ID references in this README section.
 5. Bump the cache-busting `?v=` on `index.html`'s CSS/JS links (see above),
-   then deploy and test with a real email address.
-
-Until step 4 is done, the form falls back to a mocked success state (logging
-a console warning) instead of silently failing, so the page never looks
-broken mid-setup.
+   then deploy and test with a real email address — confirm it actually
+   shows up in Kit's **Subscribers** list, not just that the page shows a
+   success message.
 
 **Double opt-in:** Kit forms have confirmation email settings under the
 form's Settings tab — enable it if you want subscribers to confirm before
-landing on your list.
+landing on your list. The current form's success message assumes double
+opt-in is on ("check your inbox to confirm"); adjust the message in Kit's
+Design tab (or the `data-options` success_message in the embed) if you turn
+it off.
 
 ## Known placeholders (fix before real launch)
 
