@@ -685,57 +685,79 @@ section { padding: 88px 0; position: relative; }
   color: var(--navy);
   font-weight: 700;
 }
-.signup-form {
-  gap: 12px;
+/* ---------- Called to Account signup: Kit's real embedded form,
+   restyled to match the site's brand. Kit's own <style> block (loaded
+   inline next to the form in index.html) sets the functional baseline
+   -- layout, the submit spinner, hiding the empty error list -- so
+   these only override appearance, at higher specificity/!important
+   where Kit's own inline style="" attributes would otherwise win. */
+.newsletter-kit-form {
   margin-top: 28px;
-  flex-wrap: wrap;
 }
-/* Same fix as .form-success: don't set display unconditionally, or the
-   hidden attribute JS sets on submit (form.hidden = true) has no effect. */
-.signup-form:not([hidden]) {
-  display: flex;
+.newsletter-kit-form .formkit-fields {
+  gap: 12px;
 }
-.signup-form input {
-  flex: 1 1 240px;
-  padding: 14px 20px;
-  border: 2px solid var(--navy-deep);
-  border-radius: 999px;
-  font-family: var(--font-sans);
-  font-size: 0.95rem;
-  background: var(--cream);
+.newsletter-kit-form .formkit-input {
+  padding: 14px 20px !important;
+  border: 2px solid var(--navy-deep) !important;
+  border-radius: 999px !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.95rem !important;
+  background: var(--cream) !important;
+  color: var(--ink) !important;
 }
-.signup-form input:focus {
+.newsletter-kit-form .formkit-input:focus {
   outline: 2px solid var(--navy);
   outline-offset: 2px;
+  border-color: var(--navy) !important;
 }
-.form-success {
-  margin-top: 16px;
-  color: var(--cream);
-  background: var(--navy);
-  border-radius: 999px;
-  padding: 10px 18px;
+.newsletter-kit-form .formkit-submit {
+  background: var(--orange) !important;
+  border: 2px solid var(--navy) !important;
+  border-radius: 999px !important;
+  /* Matches this section's other hard-shadow buttons (.newsletter .btn-hard). */
+  box-shadow: 6px 6px 0 var(--navy-deep);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+.newsletter-kit-form .formkit-submit:hover {
+  background: var(--orange-deep) !important;
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 var(--navy-deep);
+}
+.newsletter-kit-form .formkit-submit > span {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--white) !important;
+  padding: 15px 30px !important;
+}
+.newsletter-kit-form .formkit-alert-success {
+  background: var(--navy) !important;
+  border-color: var(--navy) !important;
+  color: var(--cream) !important;
+  border-radius: 999px !important;
   font-weight: 700;
   font-size: 0.9rem;
 }
-/* Unconditionally setting `display` above would override the browser's
-   default [hidden] { display: none } rule at equal specificity, making
-   the `hidden` attribute a no-op. Scope it to only apply once JS clears
-   `hidden`, so the message stays hidden until the form actually submits. */
-.form-success:not([hidden]) {
-  display: inline-block;
-}
-.form-error {
-  margin-top: 16px;
-  color: var(--cream);
-  background: var(--orange-deep);
-  border-radius: 999px;
-  padding: 10px 18px;
+.newsletter-kit-form .formkit-alert-error {
+  background: var(--orange-deep) !important;
+  border-color: var(--orange-deep) !important;
+  color: var(--cream) !important;
+  border-radius: 999px !important;
   font-weight: 700;
   font-size: 0.9rem;
 }
-/* Same [hidden] specificity fix as .form-success/.signup-form above. */
-.form-error:not([hidden]) {
-  display: inline-block;
+/* The badge's text is intentionally indented off-screen in favor of a
+   background-image logo (from Kit's own embed CSS, trimmed out of
+   index.html here since it's a very long inline data URI) -- undo that
+   so "Built with Kit" reads as plain, legible text instead of an empty box. */
+.newsletter-kit-form .formkit-powered-by-convertkit {
+  text-indent: 0 !important;
+  width: auto !important;
+  height: auto !important;
+  font-size: 0.75rem !important;
+  color: var(--slate) !important;
+  background-image: none !important;
 }
 .form-note {
   font-size: 0.78rem;
