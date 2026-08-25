@@ -76,12 +76,18 @@ don't: use Kit's official embed and restyle it, the way it's done now.
    shows up in Kit's **Subscribers** list, not just that the page shows a
    success message.
 
-**Double opt-in:** Kit forms have confirmation email settings under the
-form's Settings tab — enable it if you want subscribers to confirm before
-landing on your list. The current form's success message assumes double
-opt-in is on ("check your inbox to confirm"); adjust the message in Kit's
-Design tab (or the `data-options` success_message in the embed) if you turn
-it off.
+**Double opt-in:** currently **off** for this form — subscribers land on the
+list immediately, no confirmation email. Kit forms have this setting under
+the form's Settings tab if you want to turn it back on. The success message
+(`data-options` → `success_message` in the embed) is written to match
+whichever state is active ("You're in. Welcome to Called to Account." for
+single opt-in) — update it to something like "check your inbox to confirm"
+if you re-enable confirmation.
+
+Trade-off worth knowing: single opt-in means anyone can type any email
+(typos, someone else's address) and it's added immediately, no verification.
+Fine for a lot of solo newsletters, but it does affect list quality and
+sender reputation over time if bad addresses accumulate.
 
 ## Known placeholders (fix before real launch)
 
