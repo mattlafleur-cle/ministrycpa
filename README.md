@@ -31,7 +31,7 @@ the version forces a fresh fetch.
 1. Header / nav — About, Services, Called to Account, Speaking, Contact, Subscribe CTA
 2. Hero — headline, sub, primary + secondary CTA, trust bar
 3. Problem — 3 pain-point cards + the 11 ministry finance pillars
-4. About — bio, headshot, "in good company" relationships
+4. About — bio, headshot
 5. Services — Advisory/Fractional CFO, Compliance Reviews & Board Training, Speaking & Workshops
 6. Called to Account — name explainer, what-you-get list, email capture (live, via Kit), archive preview
 7. Speaking — topics, audiences, booking CTA
