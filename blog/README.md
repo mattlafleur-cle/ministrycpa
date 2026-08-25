@@ -2,11 +2,16 @@
 
 A place to post "Called to Account" newsletter issues as standalone web
 pages. Lives at `/blog/` on the same site and deploy as the main homepage —
-no separate hosting, no separate domain required. Right now it is **not**
-linked from the main site's nav, and every page here has
-`<meta name="robots" content="noindex, follow">` so it won't show up in
-search results until you're ready. Both are easy to undo when you want this
-public (see "Going public" below).
+no separate hosting, no separate domain required.
+
+**Status: public.** `noindex` has been removed from `blog/index.html` and
+every real post (it stays on `posts/_template.html` intentionally — see the
+comment there — since that file is a stub, not a real page). The three
+homepage "Coming Soon" archive cards now link to their real posts, and all
+four posts plus the blog index are in the root `sitemap.xml`. The blog is
+still not linked from the main site's header/footer nav, by choice (see
+"Going public" below) — it's reachable via the homepage archive cards and
+direct links.
 
 Reachable today at:
 - `https://theministrycpa.com/blog/`
@@ -43,14 +48,19 @@ just send it over.
 
 ## Going public
 
-When you're ready for this to be a real, findable part of the site:
+Done as of the first three real posts:
 
-1. Remove `<meta name="robots" content="noindex, follow">` from
-   `blog/index.html` and from each post page (or ask me to do it).
+1. ~~Remove `<meta name="robots" content="noindex, follow">` from
+   `blog/index.html` and from each post page.~~ Done — kept intentionally on
+   `posts/_template.html` only.
+
+Still optional, your call:
+
 2. Add a nav link to `/blog/` from the main site if you want it in the
-   header/footer (also optional — some sites intentionally only link to it
-   from the newsletter emails themselves).
+   header/footer (some sites intentionally only link to it from the
+   newsletter emails and homepage archive cards themselves, which is the
+   current setup).
 3. Consider whether `Calledtoaccount.blog` (the domain you already own)
    should redirect here instead of to `/newsletter` on the main site — that
    was the original plan, but now that there's real content to point to,
-   redirecting the domain straight to `/blog/` might read better. Your call.
+   redirecting the domain straight to `/blog/` might read better.

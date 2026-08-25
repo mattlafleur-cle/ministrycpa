@@ -1,7 +1,7 @@
 /* ==========================================================================
    Called to Account — blog stylesheet
-   Same brand tokens as the main site (navy + orange, Fraunces + Plus
-   Jakarta Sans) but laid out for reading rather than for conversion —
+   Same brand tokens as the main site (navy + orange, Source Serif 4 +
+   Public Sans) but laid out for reading rather than for conversion —
    no blobs/waves/ticker here, just a clean archive and article template.
    ========================================================================== */
 
@@ -20,8 +20,8 @@
   --border: #E8DCC8;
   --white: #FFFFFF;
 
-  --font-display: 'Fraunces', Georgia, serif;
-  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Source Serif 4', Georgia, serif;
+  --font-sans: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
   --max-width: 720px;
 }
@@ -197,6 +197,16 @@ a { color: inherit; text-decoration: none; }
   font-size: clamp(1.9rem, 4.5vw, 2.6rem);
   margin-bottom: 0;
 }
+.post-byline {
+  font-size: 0.92rem;
+  color: var(--slate);
+  margin: 12px 0 0;
+}
+.post-byline a {
+  color: var(--orange-deep);
+  font-weight: 600;
+}
+.post-byline a:hover { text-decoration: underline; }
 article.post-body {
   padding: 32px 0 24px;
   font-size: 1.08rem;

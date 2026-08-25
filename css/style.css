@@ -754,12 +754,15 @@ section { padding: 88px 0; position: relative; }
   gap: 16px;
 }
 .archive-card {
+  display: block;
   background: var(--cream);
   border: 2px solid var(--navy-deep);
   border-radius: 8px;
   padding: 20px 22px;
   border-left-width: 6px;
+  transition: transform 0.15s ease;
 }
+.archive-card:hover { transform: translateY(-4px); }
 .archive-card-1 { border-left-color: var(--navy); }
 .archive-card-2 { border-left-color: var(--orange); }
 .archive-card-3 { border-left-color: var(--navy); }
