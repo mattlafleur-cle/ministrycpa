@@ -91,11 +91,9 @@ sender reputation over time if bad addresses accumulate.
 
 ## Known placeholders (fix before real launch)
 
-- **Contact links**: point to `mailto:hello@theministrycpa.com`. Replace
-  with Matt's real inbox and, ideally, a real scheduling link (Calendly or
-  similar) for "Book a Consultation."
-- **Trust bar**: intentionally generic ("Church of the Open Door and other
-  ministries") with no logos. Add real logos/testimonials once available.
+- **Trust bar**: generic by design ("a large church in Ohio," no name). Naming
+  a specific client requires their written permission first; don't restore a
+  real name without it, even if a client is willing informally.
 - **Calledtoaccount.blog**: set up a 301 redirect from that domain to
   `/newsletter` (or `#newsletter` on this one-pager) once this site is live.
 - **Favicon**: current favicon is a generated navy/gold "MC" monogram SVG.
