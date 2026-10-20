@@ -9,10 +9,22 @@ document.addEventListener('DOMContentLoaded', function () {
   var header = document.getElementById('site-header');
   var toggle = document.getElementById('nav-toggle');
 
+  var mainNav = document.querySelector('.main-nav');
+
   if (toggle && header) {
     toggle.addEventListener('click', function () {
       var isOpen = header.classList.toggle('nav-open');
       toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+
+      // The mobile dropdown's Subscribe button sits in a second absolutely-
+      // positioned block below the nav links (see .site-header.nav-open
+      // .header-cta), so it needs to know the nav's actual rendered height
+      // to sit just below it rather than overlapping. Measuring it here
+      // instead of hardcoding a pixel guess means it stays correct as nav
+      // items are added or removed, rather than silently breaking again.
+      if (isOpen && mainNav) {
+        header.style.setProperty('--mobile-nav-height', mainNav.offsetHeight + 'px');
+      }
     });
 
     // Close the mobile menu after choosing a nav link
