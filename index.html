@@ -32,7 +32,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,600;0,8..60,700;0,8..60,800;1,8..60,600&family=Public+Sans:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/style.css?v=11" />
+  <link rel="stylesheet" href="css/style.css?v=12" />
 
   <!-- If JS is unavailable, the scroll-reveal effect never fires, so make
        sure content is visible from the start rather than stuck at opacity:0 -->
@@ -97,9 +97,7 @@
 
     <!-- ============================= HERO ============================= -->
     <section class="hero" id="hero">
-      <p class="hero-watermark" aria-hidden="true">MINISTRY</p>
       <div class="blob blob-orange hero-blob-1" aria-hidden="true"></div>
-      <div class="blob blob-navy hero-blob-2" aria-hidden="true"></div>
 
       <div class="container hero-inner">
         <div class="hero-copy reveal">
@@ -125,25 +123,26 @@
         </div>
 
         <div class="hero-photo-wrap reveal">
-          <svg class="spin-badge" viewBox="0 0 200 200" aria-hidden="true">
-            <defs>
-              <path id="badge-circle" d="M 100,100 m -82,0 a 82,82 0 1,1 164,0 a 82,82 0 1,1 -164,0" />
-            </defs>
-            <circle cx="100" cy="100" r="82" class="spin-badge-ring" />
-            <text font-size="12.5" letter-spacing="2" fill="currentColor">
-              <textPath href="#badge-circle" startOffset="0%">
-                CPA &#8226; CLEVELAND, OHIO &#8226; MINISTRY FINANCE SPECIALIST &#8226;
-              </textPath>
-            </text>
-          </svg>
+          <div class="hero-photo-visual">
+            <svg class="spin-badge" viewBox="0 0 200 200" aria-hidden="true">
+              <defs>
+                <path id="badge-circle" d="M 100,100 m -82,0 a 82,82 0 1,1 164,0 a 82,82 0 1,1 -164,0" />
+              </defs>
+              <circle cx="100" cy="100" r="82" class="spin-badge-ring" />
+              <text font-size="12.5" letter-spacing="2" fill="currentColor">
+                <textPath href="#badge-circle" startOffset="0%">
+                  CPA &#8226; CLEVELAND, OHIO &#8226; MINISTRY FINANCE SPECIALIST &#8226;
+                </textPath>
+              </text>
+            </svg>
 
-          <div class="blob blob-orange photo-blob" aria-hidden="true"></div>
-          <div class="photo-placeholder">
-            <img src="assets/matt-lafleur-headshot.jpg" alt="Matt LaFleur, CPA" />
+            <div class="blob blob-orange photo-blob" aria-hidden="true"></div>
+            <div class="photo-placeholder">
+              <img src="assets/matt-lafleur-headshot.jpg" alt="Matt LaFleur, CPA" />
+            </div>
           </div>
 
-          <span class="sticker sticker-1">Cleveland, OH Based</span>
-          <span class="sticker sticker-2">Ministry Finance CPA</span>
+          <p class="photo-caption">Cleveland, OH &middot; Ministry Finance CPA</p>
         </div>
       </div>
     </section>
@@ -151,17 +150,6 @@
     <!-- ============================= TICKER ============================= -->
     <div class="ticker" aria-hidden="true">
       <div class="ticker-track">
-        <span>Housing Allowance</span>
-        <span>Dual Tax Status</span>
-        <span>Form 990 Confusion</span>
-        <span>Restricted vs. Unrestricted Funds</span>
-        <span>Pastor as Contractor</span>
-        <span>UBIT</span>
-        <span>Digital Payments Fraud</span>
-        <span>Internal Controls</span>
-        <span>ECFA Standards</span>
-        <span>Fund Accounting</span>
-        <span>Compensation Benchmarking</span>
         <span>Housing Allowance</span>
         <span>Dual Tax Status</span>
         <span>Form 990 Confusion</span>
@@ -452,6 +440,6 @@
   <!-- Sticky floating subscribe CTA, appears after scrolling past the hero -->
   <a href="#newsletter" class="sticky-cta btn-hard" id="sticky-cta">Subscribe to Called to Account</a>
 
-  <script src="js/main.js?v=11"></script>
+  <script src="js/main.js?v=12"></script>
 </body>
 </html>
