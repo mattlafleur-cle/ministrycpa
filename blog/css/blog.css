@@ -104,16 +104,30 @@ a { color: inherit; text-decoration: none; }
   height: 30px;
   border-radius: 999px;
   background: var(--navy);
-  color: var(--orange);
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 0.75rem;
+  color: var(--cream);
   flex-shrink: 0;
 }
+
+/* Steeple Ledger mark (nav scale) and the Called to Account "C2A" badge,
+   matching the marks defined in the main site's css/style.css. */
+.blog-logo-mark-icon { width: 17px; height: 17px; }
+.blog-logo-mark-icon .mk-accent { stroke: var(--orange); }
+.cta-mark {
+  width: 44px;
+  height: 44px;
+  color: var(--navy);
+  flex-shrink: 0;
+}
+.cta-mark .cta-accent { fill: var(--orange); }
 
 /* ---------- Intro ---------- */
 .blog-intro {
   padding: 64px 0 32px;
+}
+.blog-intro-title {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 .eyebrow {
   text-transform: uppercase;

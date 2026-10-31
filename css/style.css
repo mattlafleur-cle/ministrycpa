@@ -195,11 +195,34 @@ blockquote { margin: 0; }
   height: 34px;
   border-radius: 999px;
   background: var(--navy);
-  color: var(--orange);
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 0.85rem;
+  color: var(--cream);
   flex-shrink: 0;
+}
+/* Steeple Ledger mark: a roofline (ink, follows the badge's own text color)
+   over three ruled lines (always brand orange), the same construction used
+   in the logo direction study. Reused at nav scale here and at favicon
+   scale in each page's <link rel="icon">. */
+.logo-mark-icon { width: 20px; height: 20px; }
+.logo-mark-icon .mk-accent { stroke: var(--orange); }
+
+/* Called to Account mark: a "C2A" monogram badge, from the same logo
+   direction study. Defaults to navy-on-light; .newsletter flips it to
+   cream-on-orange-deep so it stays legible on that section's background,
+   the same way .newsletter already flips its eyebrow color. */
+.cta-mark {
+  width: 42px;
+  height: 42px;
+  color: var(--navy);
+  flex-shrink: 0;
+}
+.cta-mark .cta-accent { fill: var(--orange); }
+.newsletter .cta-mark { color: var(--cream); }
+.newsletter .cta-mark .cta-accent { fill: var(--navy); }
+.newsletter-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
 }
 .main-nav {
   display: flex;
