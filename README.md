@@ -96,8 +96,29 @@ sender reputation over time if bad addresses accumulate.
   real name without it, even if a client is willing informally.
 - **Calledtoaccount.blog**: set up a 301 redirect from that domain to
   `/newsletter` (or `#newsletter` on this one-pager) once this site is live.
-- **Favicon**: current favicon is a generated navy/gold "MC" monogram SVG.
-  Replace with real brand mark when available.
+  (Matt separately registered calledtoaccount.org — decide which of the two
+  domains this redirect should point to.)
+
+## Search indexing (IndexNow)
+
+The site has an [IndexNow](https://www.indexnow.org/) key file at the repo
+root (`<32-char-hex>.txt`, containing just that key). IndexNow is a single
+ping shared by Bing, Yandex, Seznam.cz, and Naver, so one submission reaches
+all of them instead of only Bing.
+
+After publishing a new page or meaningfully changing an existing one (once
+it's live, not before), run:
+
+```
+scripts/indexnow-submit.sh
+```
+
+It reads every URL out of `sitemap.xml` and submits the whole list — so a
+sitemap update (see "Known placeholders" conventions above: bump lastmod,
+add new URLs) should happen before running it. The key file itself must
+already be reachable at `https://theministrycpa.com/<key>.txt` for Bing to
+accept the submission; it's a normal static file, so it goes live the same
+way everything else here does, on merge + deploy.
 
 ## Brand notes for future contributors
 
